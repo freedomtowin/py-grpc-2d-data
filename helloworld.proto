@@ -9,16 +9,17 @@ package helloworld;
 
 // The greeting service definition.
 service Greeter {
-  // Sends a greeting
-  rpc SayHello (HelloRequest) returns (HelloReply) {}
-}
-
-// The request message containing the user's name.
-message HelloRequest {
-  string name = 1;
+  
+  rpc CallModel (DoubleMatrix) returns (ModelResult) {}
 }
 
 // The response message containing the greetings
-message HelloReply {
+message ModelResult {
   string message = 1;
+}
+
+message DoubleMatrix {
+  int32  rows = 1;
+  int32  cols = 2;
+  repeated double data = 3 [packed=true];
 }

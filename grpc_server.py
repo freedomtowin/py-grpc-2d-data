@@ -12,9 +12,10 @@ _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
 
 class Greeter(helloworld_pb2_grpc.GreeterServicer):
-
-    def SayHello(self, request, context):
-        return helloworld_pb2.HelloReply(message='Hello, %s!' % request.name)
+        
+    def CallModel(self, request, context):
+        rslt = ' '.join([str(d) for d in request.data])
+        return helloworld_pb2.ModelResult(message='Input Data, %s!' % rslt)
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
