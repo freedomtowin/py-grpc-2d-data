@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\033io.grpc.examples.helloworldB\017HelloWorldProtoP\001\242\002\003HLW',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x10helloworld.proto\x12\nhelloworld\"\x1e\n\x0bModelResult\x12\x0f\n\x07message\x18\x01 \x01(\t\"<\n\x0c\x44oubleMatrix\x12\x0c\n\x04rows\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ols\x18\x02 \x01(\x05\x12\x10\n\x04\x64\x61ta\x18\x03 \x03(\x01\x42\x02\x10\x01\x32K\n\x07Greeter\x12@\n\tCallModel\x12\x18.helloworld.DoubleMatrix\x1a\x17.helloworld.ModelResult\"\x00\x42\x36\n\x1bio.grpc.examples.helloworldB\x0fHelloWorldProtoP\x01\xa2\x02\x03HLWb\x06proto3'
+  serialized_pb=b'\n\x10helloworld.proto\x12\nhelloworld\"\x1e\n\x0bModelResult\x12\x0f\n\x07message\x18\x01 \x01(\t\"N\n\x0c\x44oubleMatrix\x12\x0c\n\x04rows\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ols\x18\x02 \x01(\x05\x12\x10\n\x08\x63hannels\x18\x03 \x01(\x05\x12\x10\n\x04\x64\x61ta\x18\x04 \x03(\x01\x42\x02\x10\x01\x32K\n\x07Greeter\x12@\n\tCallModel\x12\x18.helloworld.DoubleMatrix\x1a\x17.helloworld.ModelResult\"\x00\x42\x36\n\x1bio.grpc.examples.helloworldB\x0fHelloWorldProtoP\x01\xa2\x02\x03HLWb\x06proto3'
 )
 
 
@@ -80,8 +80,15 @@ _DOUBLEMATRIX = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='data', full_name='helloworld.DoubleMatrix.data', index=2,
-      number=3, type=1, cpp_type=5, label=3,
+      name='channels', full_name='helloworld.DoubleMatrix.channels', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='data', full_name='helloworld.DoubleMatrix.data', index=3,
+      number=4, type=1, cpp_type=5, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -99,7 +106,7 @@ _DOUBLEMATRIX = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=64,
-  serialized_end=124,
+  serialized_end=142,
 )
 
 DESCRIPTOR.message_types_by_name['ModelResult'] = _MODELRESULT
@@ -131,8 +138,8 @@ _GREETER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=126,
-  serialized_end=201,
+  serialized_start=144,
+  serialized_end=219,
   methods=[
   _descriptor.MethodDescriptor(
     name='CallModel',

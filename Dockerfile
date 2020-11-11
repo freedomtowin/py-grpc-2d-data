@@ -94,11 +94,16 @@ RUN set -ex; \
 
 # cleanup tarballs and downloaded package files
 RUN pip install --upgrade pip \
-	&& pip install grpcio grpcio-tools \
+	&& pip install grpcio grpcio-tools tensorflow==2.3.0\
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+
 EXPOSE 50051
 
-COPY . /root/
+COPY grpc_server.py /root/grpc_server.py
+COPY helloworld_pb2.py /root/helloworld_pb2.py
+COPY helloworld_pb2_grpc.py /root/helloworld_pb2_grpc.py
+ADD mobilenet_final /root/mobilenet_final/001
+
 CMD ["python", "grpc_server.py"]

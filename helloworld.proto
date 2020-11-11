@@ -18,8 +18,13 @@ message ModelResult {
   string message = 1;
 }
 
+
 message DoubleMatrix {
   int32  rows = 1;
+  
   int32  cols = 2;
-  repeated double data = 3 [packed=true];
+  
+  int32 channels = 3;
+  
+  repeated double data = 4 [packed=true];
 }
